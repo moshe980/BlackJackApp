@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BlackJack</string>
+    <string name="initDealerTV">Dealer</string>
+    <string name="initPlayerTV">Player</string>
+    <string name="win">WIN</string>
+    <string name="even">EVEN</string>
+</resources>

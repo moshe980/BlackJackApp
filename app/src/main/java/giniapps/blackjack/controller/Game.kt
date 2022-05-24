@@ -12,13 +12,13 @@ class Game {
     private val blackJackValue = 21
 
 
-    fun hit():GameStateEnum {
+    fun hit(): GameStateEnum {
         //Draw card from the deck to hand's player:
         playerHand.addCard(myDeck.dealCard())
 
         //Check if player win or lose
         if (getPlayerValue() > blackJackValue) {
-            return  GameStateEnum.DEALER_WIN
+            return GameStateEnum.DEALER_WIN
         } else if (getPlayerValue() == blackJackValue) {
             return GameStateEnum.PLAYER_WIN
         }
@@ -28,7 +28,7 @@ class Game {
 
     }
 
-    fun stand():GameStateEnum {
+    fun stand(): GameStateEnum {
         //Dealer keep drawing cards tile hand's value at least 17
         while (getDealerValue() < 17) {
             dealerHand.addCard(myDeck.dealCard())
@@ -43,7 +43,7 @@ class Game {
             } else GameStateEnum.EVEN
 
         } else if (dealerHand.getValue() > blackJackValue) {
-            return  GameStateEnum.PLAYER_WIN
+            return GameStateEnum.PLAYER_WIN
 
         }
 
@@ -54,8 +54,7 @@ class Game {
         return hand.getValue() == 21
     }
 
-    fun start() = restart()
-    fun restart():GameStateEnum {
+    fun start(): GameStateEnum {
         //Rebuild the deck:
         myDeck = Deck()
 
@@ -95,5 +94,4 @@ class Game {
 
     fun getState(): GameStateEnum = gameState
 
-    fun isGamingInProgress()=getState()==GameStateEnum.NOT_YET
 }

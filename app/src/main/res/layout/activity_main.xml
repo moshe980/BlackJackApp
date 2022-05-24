@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ds"
     tools:context=".view.MainActivity">
 
 
@@ -35,6 +36,7 @@
         android:layout_height="0dp"
         android:gravity="center"
         android:text="dealerHand"
+        android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toStartOf="@+id/playerHandTV"
@@ -48,6 +50,7 @@
         android:layout_height="0dp"
         android:gravity="center"
         android:text="playerHand"
+        android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="@+id/dealerHandTV"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,22 +72,24 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.8" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/standBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Stand"
+        app:cornerRadius="100dp"
         app:layout_constraintBottom_toBottomOf="@+id/hitBtn"
         app:layout_constraintEnd_toStartOf="@+id/hitBtn"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/hitBtn" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/hitBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hit"
+        app:cornerRadius="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -97,12 +102,12 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Dealer"
-        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/guideline2"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="110dp" />
+        app:layout_constraintTop_toBottomOf="@+id/guideline2" />
 
     <TextView
         android:id="@+id/playerTV"
@@ -110,36 +115,36 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Player"
-        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
-        tools:layout_editor_absoluteY="110dp" />
+        app:layout_constraintTop_toBottomOf="@+id/guideline2" />
 
     <TextView
         android:id="@+id/dealerScoreTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@+id/dealerTV"
+        android:textColor="@color/white"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="142dp" />
+        app:layout_constraintTop_toBottomOf="@+id/dealerTV" />
 
     <TextView
         android:id="@+id/playerScoreTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/playerTV"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
-        tools:layout_editor_absoluteY="142dp" />
+        app:layout_constraintTop_toBottomOf="@+id/playerTV" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
@@ -147,6 +152,26 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.50121653" />
+
+    <androidx.constraintlayout.helper.widget.Layer
+        android:id="@+id/dealerLayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="dealerScoreTV,dealerTV"
+        app:layout_constraintBottom_toTopOf="@+id/dealerHandTV"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <androidx.constraintlayout.helper.widget.Layer
+        android:id="@+id/playerLayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="playerTV,playerScoreTV"
+        app:layout_constraintBottom_toTopOf="@+id/playerHandTV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
